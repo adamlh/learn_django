@@ -1,0 +1,69 @@
+body {
+    font-family: sans-serif;
+    background-color: #1e3d2b; /* Dark green background */
+    color: #f0f8ff; /* Light blue text (close to white) for better contrast */
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #66CDAA; /* Light green for headings */
+}
+
+a {
+    color: #98FB98; /* Pale green for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none; /* Remove default list style */
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+#lesson-container {
+    background-color: #285544; /* Slightly lighter green for content background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Code editor styles (adjust if using a library) */
+#code-editor {
+    background-color: #111; /* Dark background for code */
+    color: #f0f8ff;
+    padding: 10px;
+    font-family: monospace;
+}
+
+
+
+/* Add your existing styles */
+
+#terminal {
+    background-color: #111; /* Dark background */
+    color: #f0f8ff; /* Light text color */
+    padding: 10px;
+    font-family: monospace;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+#terminal-output {
+    white-space: pre; /* Preserve spaces and newlines */
+}
+
+#terminal-prompt {
+    margin-right: 5px;
+}
+
+#terminal-command {
+    background-color: transparent;
+    color: #f0f8ff;
+    border: none;
+    outline: none; /* Remove default input outline */
+}
