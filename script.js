@@ -40,7 +40,8 @@ const lessons = [
             <input type="text" id="terminal-command">
         </div>
     </div>
-        `
+        `,
+        videoUrl: 'videos/video2.mp4'
     },
     {
         id: 3,
@@ -54,7 +55,7 @@ const lessons = [
             <pre><code>python manage.py startapp polls</code></pre>
             <p>This will create a new directory called "polls" with the basic structure of a Django app.</p>
         `,
-        videoUrl: 'videos/video2.mp4' // Add the video URL here
+        videoUrl: 'videos/video3.mp4' // Add the video URL here
 
     }
     // ... Add more lessons for models, views, templates, etc.
