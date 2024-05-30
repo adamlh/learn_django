@@ -92,41 +92,42 @@ function showAllLessons() {
     lessonContainer.innerHTML = allLessonsHTML;
 }
 
-// ... your existing lessons data and loadLesson function ...
+// Function to initialize the terminal (called when the page is fully loaded)
+function initializeTerminal() {
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalInput = document.getElementById('terminal-command');
 
-const terminalOutput = document.getElementById('terminal-output');
-const terminalInput = document.getElementById('terminal-command');
+    const commandSequence = [
+        'python --version',
+        'python -m venv mydjangoenv',
+        'source mydjangoenv/bin/activate',  // Adjust for Windows if needed
+        'pip install django',
+        'django-admin --version'
+    ];
+    let currentCommandIndex = 0;
 
-const commandSequence = [
-    'python --version',
-    'python -m venv mydjangoenv',
-    'source mydjangoenv/bin/activate',  // Adjust for Windows if needed
-    'pip install django',
-    'django-admin --version'
-];
-let currentCommandIndex = 0;
+    terminalInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const enteredCommand = terminalInput.value;
+            terminalOutput.innerHTML += `$ ${enteredCommand}\n`;
 
-terminalInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        const enteredCommand = terminalInput.value;
-        terminalOutput.innerHTML += `$ ${enteredCommand}\n`;
-        
-        if (enteredCommand === commandSequence[currentCommandIndex]) {
-            terminalOutput.innerHTML += "Correct!\n";
-            currentCommandIndex++;
+            if (enteredCommand === commandSequence[currentCommandIndex]) {
+                terminalOutput.innerHTML += "Correct!\n";
+                currentCommandIndex++;
 
-            if (currentCommandIndex === commandSequence.length) {
-                terminalOutput.innerHTML += "All commands completed successfully!\n";
-                terminalInput.disabled = true;
+                if (currentCommandIndex === commandSequence.length) {
+                    terminalOutput.innerHTML += "All commands completed successfully!\n";
+                    terminalInput.disabled = true;
+                }
+            } else {
+                terminalOutput.innerHTML += "Incorrect command. Try again.\n";
             }
-        } else {
-            terminalOutput.innerHTML += "Incorrect command. Try again.\n";
+            terminalInput.value = '';
         }
-        terminalInput.value = '';
-    }
-});
-
+    });
+}
 
 // Load the first lesson by default
 //loadLesson(1); 
 showAllLessons(); 
+loadLesson(1);
